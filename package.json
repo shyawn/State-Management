@@ -15,6 +15,8 @@
     "@reduxjs/toolkit": "^2.5.1",
     "react": "19.0.0",
     "react-native": "0.78.0",
+    "react-native-draglist": "^3.8.2",
+    "react-native-radio-buttons-group": "^3.1.0",
     "react-native-safe-area-context": "^5.2.0",
     "react-native-screens": "^4.9.0",
     "react-redux": "^9.2.0"

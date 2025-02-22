@@ -44,8 +44,11 @@ const healthSlice = createSlice({
         state.selectedConcerns.push(action.payload);
       }
     },
+    setConcernOrder: (state, action) => {
+      return action.payload;
+    },
   },
 });
 
-export const {chooseOption} = healthSlice.actions;
+export const {chooseOption, setConcernOrder} = healthSlice.actions;
 export default healthSlice.reducer;

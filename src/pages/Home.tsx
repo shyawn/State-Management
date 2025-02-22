@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Button from '../components/Button';
@@ -11,9 +11,16 @@ export default function Home() {
   return (
     <View style={styles.homeContainer}>
       <View style={styles.headerContainer}>
-        <Text style={styles.homeHeader}>Welcome to DailyVita</Text>
+        <View>
+          <Text style={styles.homeHeader}>Welcome to DailyVita</Text>
+          <Text style={styles.homeSubheader}>
+            Hello, we are here to make your life healthier and happier
+          </Text>
+          {/* <Image source={''}/> */}
+        </View>
         <Text style={styles.homeDescription}>
-          Hello, we are here to make your life healthier and happier
+          We will ask couple of questions to better understand your vitamin
+          need.
         </Text>
       </View>
       <Button title="Get Started" onPress={handlePress} />
@@ -31,9 +38,14 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     flex: 1,
+    justifyContent: 'space-around',
   },
   homeHeader: {
     fontSize: 24,
+    fontWeight: 600,
+  },
+  homeSubheader: {
+    fontSize: 13,
     fontWeight: 600,
   },
   homeDescription: {

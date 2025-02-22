@@ -1,5 +1,5 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Button from '../components/Button';
 import {
@@ -21,8 +21,17 @@ export default function HealthConcern() {
     (state: RootState) => state.healthConcern.selectedConcerns,
   );
 
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const handleBack = () => navigation.goBack();
-  const handlePress = () => navigation.navigate('Diet');
+  const handlePress = () => {
+    if (selectedConcerns.length === 0) {
+      setErrorMessage('Please select at least one health concern.');
+      return;
+    }
+    setErrorMessage(null);
+    navigation.navigate('Diet');
+  };
 
   return (
     <View style={styles.healthContainer}>
@@ -38,10 +47,13 @@ export default function HealthConcern() {
             key={concern.id}
             style={[
               styles.button,
-              selectedConcerns.some(c => c.id === concern.id) &&
+              selectedConcerns.some(item => item.id === concern.id) &&
                 styles.selectedButton,
             ]}
-            onPress={() => dispatch(chooseOption(concern))}>
+            onPress={() => {
+              dispatch(chooseOption(concern));
+              setErrorMessage(null);
+            }}>
             <Text>{concern.name}</Text>
           </TouchableOpacity>
         ))}
@@ -56,6 +68,8 @@ export default function HealthConcern() {
           />
         </View>
       )}
+
+      {errorMessage && <Text style={styles.errorText}>{errorMessage}</Text>}
 
       <View style={styles.navigationContainer}>
         <Button title="Go Back" onPress={handleBack} />
@@ -93,6 +107,12 @@ const styles = StyleSheet.create({
   },
   selectedButton: {
     backgroundColor: '#FF6B6B',
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 14,
+    textAlign: 'center',
+    marginTop: 5,
   },
   navigationContainer: {
     flexDirection: 'row',

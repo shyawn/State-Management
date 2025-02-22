@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './src/pages/Home';
 import HealthConcern from './src/pages/HealthConcern';
 import Diet from './src/pages/Diet';
+import Allergies from './src/pages/Allergies';
 
 function App(): React.JSX.Element {
   // type RootStackParamList = {
@@ -23,6 +24,7 @@ function App(): React.JSX.Element {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="HealthConcern" component={HealthConcern} />
         <Stack.Screen name="Diet" component={Diet} />
+        <Stack.Screen name="Allergies" component={Allergies} />
       </Stack.Navigator>
     </NavigationContainer>
   );

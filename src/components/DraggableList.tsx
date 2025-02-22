@@ -60,18 +60,19 @@ const styles = StyleSheet.create({
   dragContainer: {
     padding: 10,
     marginVertical: 2,
-    // backgroundColor: '#f0f0f0',
-    backgroundColor: 'red',
-    borderColor: 'black',
+    backgroundColor: '#fefefd',
     borderRadius: 5,
     flex: 1,
     alignItems: 'stretch',
+    borderWidth: 1,
+    borderColor: '#91a0a6',
   },
   dragText: {
-    backgroundColor: '#ddd',
+    backgroundColor: '#33455d',
     alignSelf: 'flex-start',
     padding: 10,
     paddingVertical: 6,
     borderRadius: 20,
+    color: '#fefefd',
   },
 });

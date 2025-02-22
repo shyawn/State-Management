@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#d2f1e5',
   },
   headerContainer: {
     flex: 1,
@@ -43,12 +44,15 @@ const styles = StyleSheet.create({
   homeHeader: {
     fontSize: 24,
     fontWeight: 600,
+    color: '#33455d',
   },
   homeSubheader: {
     fontSize: 13,
     fontWeight: 600,
+    color: '#33455d',
   },
   homeDescription: {
     fontSize: 13,
+    color: '#33455d',
   },
 });

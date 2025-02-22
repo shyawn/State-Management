@@ -54,14 +54,21 @@ export default function HealthConcern() {
               dispatch(chooseOption(concern));
               setErrorMessage(null);
             }}>
-            <Text>{concern.name}</Text>
+            <Text
+              style={[
+                styles.buttonText,
+                selectedConcerns.some(item => item.id === concern.id) &&
+                  styles.selectedButtonText,
+              ]}>
+              {concern.name}
+            </Text>
           </TouchableOpacity>
         ))}
       </View>
 
       {selectedConcerns.length > 0 && (
         <View>
-          <Text>Prioritize</Text>
+          <Text style={styles.healthHeader}>Prioritize</Text>
           <DraggableList
             data={selectedConcerns}
             onReordered={updatedData => dispatch(setConcernOrder(updatedData))}
@@ -84,10 +91,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     padding: 20,
+    backgroundColor: '#d2f1e5',
   },
   healthHeader: {
     fontSize: 16,
     fontWeight: '600',
+    color: '#33455d',
   },
   asterisk: {
     color: '#FF6B6B',
@@ -99,14 +108,22 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: '#ddd',
     padding: 10,
     paddingVertical: 6,
     margin: 5,
     borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#91a0a6',
+    color: '#33455d',
+  },
+  buttonText: {
+    color: '#33455d',
   },
   selectedButton: {
-    backgroundColor: '#FF6B6B',
+    backgroundColor: '#33455d',
+  },
+  selectedButtonText: {
+    color: '#d2f1e5',
   },
   errorText: {
     color: 'red',

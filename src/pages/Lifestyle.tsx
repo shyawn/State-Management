@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     padding: 20,
+    backgroundColor: '#d2f1e5',
   },
   optionContainer: {
     flexDirection: 'row',

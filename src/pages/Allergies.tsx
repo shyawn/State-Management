@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     padding: 20,
+    backgroundColor: '#d2f1e5',
   },
   navigationContainer: {
     flexDirection: 'row',
@@ -117,6 +118,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#ccc',
+    backgroundColor: 'white',
     padding: 10,
     borderRadius: 5,
     minHeight: 50,
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
   allergiesHeader: {
     fontSize: 16,
     fontWeight: '600',
+    color: '#33455d',
   },
   input: {
     flex: 1,
@@ -131,14 +134,15 @@ const styles = StyleSheet.create({
   },
   tag: {
     flexDirection: 'row',
-    backgroundColor: '#ddd',
-    padding: 5,
-    borderRadius: 5,
+    backgroundColor: '#33455d',
+    padding: 6,
+    borderRadius: 20,
     marginRight: 5,
     alignItems: 'center',
   },
   tagText: {
     marginRight: 5,
+    color: 'white',
   },
   removeTag: {
     color: 'red',
@@ -146,7 +150,8 @@ const styles = StyleSheet.create({
   },
   listItem: {
     padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderWidth: 1,
+    borderColor: '#eee',
+    backgroundColor: '#fefefd',
   },
 });

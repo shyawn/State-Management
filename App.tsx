@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -24,28 +25,35 @@ function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <View>
-      <Text>App</Text>
+    <View style={styles.homeContainer}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.homeHeader}>Welcome to DailyVita</Text>
+        <Text style={styles.homeDescription}>
+          Hello, we are here to make your life healthier and happier
+        </Text>
+      </View>
+      <Button title="Get Started"></Button>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  homeContainer: {
+    padding: 20,
+    paddingVertical: 30,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  sectionTitle: {
+  headerContainer: {
+    flex: 1,
+  },
+  homeHeader: {
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: 600,
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  homeDescription: {
+    fontSize: 13,
   },
 });
 

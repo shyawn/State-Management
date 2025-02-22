@@ -17,6 +17,12 @@ export default function Lifestyle() {
   const dispatch = useDispatch();
 
   const lifestyle = useSelector((state: RootState) => state.lifestyle);
+  const healthConcerns = useSelector(
+    (state: RootState) => state.healthConcern.selectedConcerns,
+  );
+  const diets = useSelector((state: RootState) => state.diet);
+
+  const allergies = useSelector((state: RootState) => state.allergies);
 
   const [selectedSun, setSelectedSun] = useState(
     lifestyle.is_daily_exposure ? 'yes_sun' : 'no_sun',
@@ -45,28 +51,29 @@ export default function Lifestyle() {
   const handleSunChange = (id: string) => {
     setSelectedSun(id);
     dispatch(setDailyExposure(id === 'yes_sun'));
-    // console.log('Store: ', lifestyle);
   };
 
   const handleSmokeChange = (id: string) => {
     setSelectedSmoke(id);
     dispatch(setSmokingStatus(id === 'yes_smoke'));
-    // console.log('Store: ', lifestyle);
   };
 
   const handleAlcoholChange = (id: string) => {
     setSelectedAlcohol(id);
     dispatch(setAlcoholConsumption(id));
-    // console.log('Store: ', lifestyle);
   };
 
   const handlePress = () => {
     const fullStore = {
+      health_concerns: healthConcerns,
+      diets: diets,
       is_daily_exposure: lifestyle.is_daily_exposure,
       is_smoke: lifestyle.is_smoke,
       alcohol: lifestyle.alcohol,
+      allergies: allergies,
     };
     console.log('Fullstore: ', fullStore);
+    return navigation.navigate('Home');
   };
   return (
     <View style={styles.lifestyleContainer}>

@@ -1,7 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-// import dietJSON from '../../utils/Diets.json';
 
-// const initialState: any = [];
 interface Diet {
   id: string;
   name: string;

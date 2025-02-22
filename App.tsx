@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './src/pages/Home';
 import HealthConcern from './src/pages/HealthConcern';
+import Diet from './src/pages/Diet';
 
 function App(): React.JSX.Element {
   // type RootStackParamList = {
@@ -21,6 +22,7 @@ function App(): React.JSX.Element {
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="HealthConcern" component={HealthConcern} />
+        <Stack.Screen name="Diet" component={Diet} />
       </Stack.Navigator>
     </NavigationContainer>
   );

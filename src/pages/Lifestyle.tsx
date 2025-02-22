@@ -24,13 +24,13 @@ export default function Lifestyle() {
 
   const allergies = useSelector((state: RootState) => state.allergies);
 
-  const [selectedSun, setSelectedSun] = useState(
-    lifestyle.is_daily_exposure ? 'yes_sun' : 'no_sun',
+  const [selectedSun, setSelectedSun] = useState<string | undefined>(undefined);
+  const [selectedSmoke, setSelectedSmoke] = useState<string | undefined>(
+    undefined,
   );
-  const [selectedSmoke, setSelectedSmoke] = useState(
-    lifestyle.is_smoke ? 'yes_smoke' : 'no_smoke',
+  const [selectedAlcohol, setSelectedAlcohol] = useState<string | undefined>(
+    undefined,
   );
-  const [selectedAlcohol, setSelectedAlcohol] = useState(lifestyle.alcohol);
 
   const radioButtons1: RadioButtonProps[] = [
     {id: 'yes_sun', label: 'Yes', value: 'yes'},

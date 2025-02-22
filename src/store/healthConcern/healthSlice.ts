@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import healthJSON from '../../utils/Healthconcern.json';
 
 // todo: place this in types folder
 export interface HealthConcern {
@@ -13,18 +14,7 @@ interface HealthConcernsState {
 }
 
 const initialState: HealthConcernsState = {
-  allConcerns: [
-    {id: '1', name: 'Sleep'},
-    {id: '2', name: 'Immunity'},
-    {id: '3', name: 'Stress'},
-    {id: '4', name: 'Joint Support'},
-    {id: '5', name: 'Digestion'},
-    {id: '6', name: 'Mood'},
-    {id: '7', name: 'Energy'},
-    {id: '8', name: 'Hair, Skin, Nails'},
-    {id: '9', name: 'Weight Loss'},
-    {id: '10', name: 'Fitness'},
-  ],
+  allConcerns: healthJSON.data,
   selectedConcerns: [],
 };
 
@@ -45,8 +35,8 @@ const healthSlice = createSlice({
         state.selectedConcerns.push(action.payload);
       }
     },
-    setConcernOrder: (state, action) => {
-      return action.payload;
+    setConcernOrder: (state, action: PayloadAction<HealthConcern[]>) => {
+      state.selectedConcerns = action.payload;
     },
   },
 });

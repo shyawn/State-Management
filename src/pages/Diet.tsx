@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import React, {useMemo, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Button from '../components/Button';
@@ -15,7 +15,7 @@ export default function Diet() {
 
   const selectedDiet = useSelector((state: RootState) => state.diet);
 
-  //   useMemo to only update when new value selected
+  // useMemo to only update when new value selected
   const radioButtons = useMemo(() => {
     return dietJSON.data.map(item => ({
       id: item.id.toString(),
@@ -27,8 +27,6 @@ export default function Diet() {
   const [selectDiet, setSelectDiet] = useState<string | undefined>(
     selectedDiet,
   );
-
-  //   console.log('DIET', selectDiet);
 
   const handleSelection = (id: string) => {
     setSelectDiet(id);
@@ -48,13 +46,18 @@ export default function Diet() {
 
   return (
     <View style={styles.dietContainer}>
-      <Text>Select the diets you follow.*</Text>
+      <Text style={styles.dietHeader}>
+        Select the diets you follow.<Text style={styles.asterisk}>*</Text>
+      </Text>
 
-      <RadioGroup
-        radioButtons={radioButtons}
-        onPress={handleSelection}
-        selectedId={selectDiet}
-      />
+      <View style={styles.optionContainer}>
+        <RadioGroup
+          radioButtons={radioButtons}
+          onPress={handleSelection}
+          selectedId={selectDiet}
+        />
+        {/* <Image source={require('../assets/tooltip.png')} /> */}
+      </View>
 
       <View style={styles.navigationContainer}>
         <Button title="Go Back" onPress={handleBack} />
@@ -70,9 +73,21 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     padding: 20,
   },
+  optionContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  },
   navigationContainer: {
-    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
     gap: 5,
     marginTop: 20,
+  },
+  dietHeader: {
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  asterisk: {
+    color: '#FF6B6B',
   },
 });

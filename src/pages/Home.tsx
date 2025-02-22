@@ -1,7 +1,13 @@
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
+import Button from '../components/Button';
 
 export default function Home() {
+  const navigation = useNavigation();
+  const handlePress = () => {
+    return navigation.navigate('HealthConcern');
+  };
   return (
     <View style={styles.homeContainer}>
       <View style={styles.headerContainer}>
@@ -10,7 +16,7 @@ export default function Home() {
           Hello, we are here to make your life healthier and happier
         </Text>
       </View>
-      <Button title="Get Started"></Button>
+      <Button title="Get Started" onPress={handlePress} />
     </View>
   );
 }

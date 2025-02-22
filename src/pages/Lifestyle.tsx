@@ -78,25 +78,31 @@ export default function Lifestyle() {
   return (
     <View style={styles.lifestyleContainer}>
       <Text>Is your daily exposure to sun limited?*</Text>
-      <RadioGroup
-        radioButtons={radioButtons1}
-        onPress={handleSunChange}
-        selectedId={selectedSun}
-      />
+      <View style={styles.optionContainer}>
+        <RadioGroup
+          radioButtons={radioButtons1}
+          onPress={handleSunChange}
+          selectedId={selectedSun}
+        />
+      </View>
       <Text>Do you currently smoke (tobacco or marijuana)?*</Text>
-      <RadioGroup
-        radioButtons={radioButtons2}
-        onPress={handleSmokeChange}
-        selectedId={selectedSmoke}
-      />
+      <View style={styles.optionContainer}>
+        <RadioGroup
+          radioButtons={radioButtons2}
+          onPress={handleSmokeChange}
+          selectedId={selectedSmoke}
+        />
+      </View>
       <Text>
         On average, how many alcoholic beverages do you have in a week?*
       </Text>
-      <RadioGroup
-        radioButtons={radioButtons3}
-        onPress={handleAlcoholChange}
-        selectedId={selectedAlcohol}
-      />
+      <View style={styles.optionContainer}>
+        <RadioGroup
+          radioButtons={radioButtons3}
+          onPress={handleAlcoholChange}
+          selectedId={selectedAlcohol}
+        />
+      </View>
       <Button title="Get my personalized vitamin" onPress={handlePress} />
     </View>
   );
@@ -107,5 +113,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     padding: 20,
+  },
+  optionContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
   },
 });

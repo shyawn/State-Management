@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-interface HealthConcern {
+// todo: place this in types folder
+export interface HealthConcern {
   id: string;
   name: string;
   priority?: number;

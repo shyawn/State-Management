@@ -1,9 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
 import healthSlice from './healthConcern/healthSlice';
+import dietSlice from './diet/dietSlice';
 
 export const store = configureStore({
   reducer: {
     healthConcern: healthSlice,
+    diet: dietSlice,
   },
 });
 

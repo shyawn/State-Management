@@ -33,7 +33,6 @@ export default function MultiSelectDropdown() {
   }, [searchText]);
 
   const handleSelect = (selectedItem: any) => {
-    // console.log('ITEM: ', selectedItem);
     dispatch(chooseAllergies(selectedItem));
     setSearchText('');
     setShowDropdown(false);
@@ -50,6 +49,10 @@ export default function MultiSelectDropdown() {
 
   return (
     <View style={styles.allergiesContainer}>
+      <Text style={styles.allergiesHeader}>
+        Write any specific allergies or sensitivity towards specific things.
+        (optional)
+      </Text>
       <View style={styles.inputContainer}>
         <FlatList
           horizontal
@@ -103,7 +106,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   navigationContainer: {
-    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
     gap: 5,
     marginTop: 20,
   },
@@ -116,6 +120,10 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     minHeight: 50,
+  },
+  allergiesHeader: {
+    fontSize: 16,
+    fontWeight: '600',
   },
   input: {
     flex: 1,

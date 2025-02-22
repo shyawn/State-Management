@@ -7,6 +7,8 @@ import HealthConcern from './src/pages/HealthConcern';
 import Diet from './src/pages/Diet';
 import Allergies from './src/pages/Allergies';
 import Lifestyle from './src/pages/Lifestyle';
+import {store} from './src/store/store';
+import {Provider} from 'react-redux';
 
 function App(): React.JSX.Element {
   // type RootStackParamList = {
@@ -21,13 +23,15 @@ function App(): React.JSX.Element {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="HealthConcern" component={HealthConcern} />
-        <Stack.Screen name="Diet" component={Diet} />
-        <Stack.Screen name="Allergies" component={Allergies} />
-        <Stack.Screen name="Lifestyle" component={Lifestyle} />
-      </Stack.Navigator>
+      <Provider store={store}>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="HealthConcern" component={HealthConcern} />
+          <Stack.Screen name="Diet" component={Diet} />
+          <Stack.Screen name="Allergies" component={Allergies} />
+          <Stack.Screen name="Lifestyle" component={Lifestyle} />
+        </Stack.Navigator>
+      </Provider>
     </NavigationContainer>
   );
 }

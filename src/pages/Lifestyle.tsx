@@ -32,6 +32,8 @@ export default function Lifestyle() {
     undefined,
   );
 
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const radioButtons1: RadioButtonProps[] = [
     {id: 'yes_sun', label: 'Yes', value: 'yes'},
     {id: 'no_sun', label: 'No', value: 'no'},
@@ -64,6 +66,11 @@ export default function Lifestyle() {
   };
 
   const handlePress = () => {
+    if (!selectedSun || !selectedSmoke || !selectedAlcohol) {
+      setErrorMessage('Please answer all questions before continuing.');
+      return;
+    }
+
     const fullStore = {
       health_concerns: healthConcerns,
       diets: diets,
@@ -77,7 +84,10 @@ export default function Lifestyle() {
   };
   return (
     <View style={styles.lifestyleContainer}>
-      <Text>Is your daily exposure to sun limited?*</Text>
+      <Text style={styles.lifestyleHeader}>
+        Is your daily exposure to sun limited?
+        <Text style={styles.asterisk}>*</Text>
+      </Text>
       <View style={styles.optionContainer}>
         <RadioGroup
           radioButtons={radioButtons1}
@@ -85,7 +95,10 @@ export default function Lifestyle() {
           selectedId={selectedSun}
         />
       </View>
-      <Text>Do you currently smoke (tobacco or marijuana)?*</Text>
+      <Text style={styles.lifestyleHeader}>
+        Do you currently smoke (tobacco or marijuana)?
+        <Text style={styles.asterisk}>*</Text>
+      </Text>
       <View style={styles.optionContainer}>
         <RadioGroup
           radioButtons={radioButtons2}
@@ -93,8 +106,9 @@ export default function Lifestyle() {
           selectedId={selectedSmoke}
         />
       </View>
-      <Text>
-        On average, how many alcoholic beverages do you have in a week?*
+      <Text style={styles.lifestyleHeader}>
+        On average, how many alcoholic beverages do you have in a week?
+        <Text style={styles.asterisk}>*</Text>
       </Text>
       <View style={styles.optionContainer}>
         <RadioGroup
@@ -103,6 +117,9 @@ export default function Lifestyle() {
           selectedId={selectedAlcohol}
         />
       </View>
+
+      {errorMessage && <Text style={styles.errorText}>{errorMessage}</Text>}
+
       <Button title="Get my personalized vitamin" onPress={handlePress} />
     </View>
   );
@@ -117,5 +134,18 @@ const styles = StyleSheet.create({
   optionContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
+  },
+  asterisk: {
+    color: '#FF6B6B',
+  },
+  lifestyleHeader: {
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 14,
+    textAlign: 'center',
+    marginTop: 10,
   },
 });

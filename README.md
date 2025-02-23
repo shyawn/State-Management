@@ -1,8 +1,15 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## State Management
 
-# Getting Started
+*Note:
+- App was built with Android Small Phone (NDK v28.0.13004108)
+- See console.log for final store output in Lifestyle.tsx page
+- Was unable to configure and import svg image in homepage
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+### Libraries used:
+- react-navigation
+- react-native-draglist
+- react-native-radio-buttons-group
+- react-redux
 
 ## Step 1: Start Metro
 
